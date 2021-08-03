@@ -1,27 +1,35 @@
-name: Conver Ad Hoc Commands to a Playbook
-  #connection: ansible.netcommon.network_cli
-  #gather_facts: false
-  #hosts: all
-  tasks:
-
-    - name: Make test directory
-      task: ansible node01  -a "mkdir /home/ec2-user/testdirAnsible"
-
-   # - name: Display the config
-    #  debug:
-     #   msg: "The hostname is {{ ansible_net_hostname }} and the OS is {{ ansible_net_version }}"
-
-#        ----------------
-          # ssh node01 "mkdir /home/ec2-user/mytestdir"
-#ansible node01  -a "mkdir /home/ec2-user/testdirAnsible"
-#ansible node01 -m copy -a "src=inventory/ansible-nodes dest=/tmp/ansible-nodes"
-#ansible node01 -m shell -a "cat /tmp/ansible-nodes" 
-#ansible node01 -b -m yum -a "name=httpd state=present"
-#ansible node01 -b -m yum -a "name=git state=present"
-#ansible node01 -b -m git -a "repo=https://github.com/becloudready/prometheus_monitoring.git dest=/tmp version=HEAD"
-
-# Using Ansible modules in ad-hoc commands
-#ansible -m -m yum -a "name=nginx state=present" node01 --become
-#ansible -m service -a "name=nginx state=started enabled=yes" node01 --become
-#ansible -m file -a "path=/home/ec2-user/usingAnsible state=directory" node01 --become
-#ansible -m copy -a "src=Vagrantfile dest=/tmp" node01 --become
+hosts: node01 # Host or Group of Selections
+tasks:
+  - name: TaskA1
+    copy : src=inventory/ansible-nodes dest=/tmp/ansible-nodes
+  - name: TaskA2
+    shell: cat /tmp/ansible-nodes
+  - name: TaskA3
+    yum:
+      name: httpd
+      state: present
+  - name: TaskA4
+    yum:
+      name: git
+      state: present
+  - name: TaskA5
+      git:
+        repo: https://github.com/becloudready/prometheus_monitoring.git
+        dest: tmp1
+        version: HEAD
+  - name: TaskA6
+      yum:
+        name: nginx
+        state: present
+  - name: TaskA7
+      service: nginx
+      state: started
+      enabled: yes
+  - name: TaskA8
+      file:
+        path: /home/ec2-user/usingAnsibl
+        state: directory
+  - name: TaskA9
+      copy:
+        src: Vagrantfile
+        dest: temp1
