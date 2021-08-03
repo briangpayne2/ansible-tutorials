@@ -2,6 +2,9 @@
   gather_facts: true
   vars:
     my_name: Chandan
+  file:
+      path: /tmp1
+      permission: 644
   tasks:
     - yum:
         pkg: httpd
