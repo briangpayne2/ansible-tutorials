@@ -22,7 +22,8 @@ tasks:
       name: nginx
       state: present
   - name: TaskA7
-    service: nginx
+    service: 
+      name: nginx
       state: started
       enabled: yes
   - name: TaskA8
