@@ -1,15 +1,15 @@
 name: Conver Ad Hoc Commands to a Playbook
   #connection: ansible.netcommon.network_cli
-  gather_facts: false
-  hosts: all
+  #gather_facts: false
+  #hosts: all
   tasks:
 
     - name: Make test directory
       task: ansible node01  -a "mkdir /home/ec2-user/testdirAnsible"
 
-    - name: Display the config
-      debug:
-        msg: "The hostname is {{ ansible_net_hostname }} and the OS is {{ ansible_net_version }}"
+   # - name: Display the config
+    #  debug:
+     #   msg: "The hostname is {{ ansible_net_hostname }} and the OS is {{ ansible_net_version }}"
 
 #        ----------------
           # ssh node01 "mkdir /home/ec2-user/mytestdir"
