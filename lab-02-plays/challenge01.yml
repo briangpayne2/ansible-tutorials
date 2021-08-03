@@ -13,23 +13,23 @@ tasks:
       name: git
       state: present
   - name: TaskA5
-      git:
-        repo: https://github.com/becloudready/prometheus_monitoring.git
-        dest: tmp1
-        version: HEAD
+    git:
+      repo: https://github.com/becloudready/prometheus_monitoring.git
+      dest: tmp1
+      version: HEAD
   - name: TaskA6
-      yum:
-        name: nginx
-        state: present
+    yum:
+      name: nginx
+      state: present
   - name: TaskA7
-      service: nginx
+    service: nginx
       state: started
       enabled: yes
   - name: TaskA8
-      file:
-        path: /home/ec2-user/usingAnsibl
-        state: directory
+    file:
+      path: /home/ec2-user/usingAnsibl
+      state: directory
   - name: TaskA9
-      copy:
-        src: Vagrantfile
-        dest: temp1
+    copy:
+      src: Vagrantfile
+      dest: temp1
