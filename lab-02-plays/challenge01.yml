@@ -1,5 +1,5 @@
 name: Conver Ad Hoc Commands to a Playbook
-  connection: ansible.netcommon.network_cli
+  #connection: ansible.netcommon.network_cli
   gather_facts: false
   hosts: all
   tasks:
