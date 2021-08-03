@@ -32,7 +32,7 @@
       register: result
 
     - debug:
-        var: result
+        var: result.stdout_lines[0]
         
     - debug:
         msg: "{{ my_name }}"
