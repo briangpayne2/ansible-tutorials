@@ -1,0 +1,18 @@
+- hosts: webservers
+  vars :
+    user_name : Chandan
+  tasks:
+    - template:
+        src: example-template.j2
+        dest: /tmp/jinja-ouput
+    - yum:
+        pkg: httpd
+        state: installed
+    - template:
+        src: httpd.conf.j2
+        dest: /etc/httpd/conf/httpd.conf
+    - debug: var=play_hosts
+    - service: httpd
+        name: httpd
+        state: restarted
+
