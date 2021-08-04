@@ -4,5 +4,4 @@
   vars:
     env: dev
   roles:
-    - java
     - httpd
